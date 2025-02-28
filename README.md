@@ -34,41 +34,40 @@ boost_1_69_0.tar.gz 100%[================>] 106.53M  5.13MB/s    in 23s
 
 2.Разархивируйте скаченный файл в директорию ~/boost_1_69_0
 
-<$ mkdir ~boost_1_69_0>
+$ <mkdir ~boost_1_69_0>
 <>
-<$ tar -xzf boost_1_69_0.tar.gz>
+$ <tar -xzf boost_1_69_0.tar.gz>
 <>
 
 3.Подсчитайте количество файлов в директории ~/boost_1_69_0 не включая вложенные директории.
 (Ввод)
 
-<$ find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l>
+$ <find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l>
 <12>
 
 4.Подсчитайте количество файлов в директории ~/boost_1_69_0 включая вложенные директории.
-(Ввод)
 
-<$ find ~/boost_1_69_0 -type f | wc -l  >
+$ <find ~/boost_1_69_0 -type f | wc -l  >
 <61191>
 
 5.Подсчитайте количество заголовочных файлов, файлов с расширением .cpp, сколько остальных файлов (не заголовочных и не .cpp).
 
-<$ header_files=$(find ~/boost_1_69_0 -type f -name "*.hpp" | wc -l)>
+$ <header_files=$(find ~/boost_1_69_0 -type f -name "*.hpp" | wc -l)>
 <>
-<$ cpp_files=$(find ~/boost_1_69_0 -type f -name "*cpp" |wc -l)>
+$ <cpp_files=$(find ~/boost_1_69_0 -type f -name "*cpp" |wc -l)>
 <>
-<$ other_files=$(find ~/boost_1_69_0 -type f ! -name "*.hpp" ! -name "*cpp.">
+$ <other_files=$(find ~/boost_1_69_0 -type f ! -name "*.hpp" ! -name "*cpp.">
 <>
-<echo "Header files: $header_files">
+$ <echo "Header files: $header_files">
 <Header files: 14912>
-<$ echo "CPP files: $cpp_files" >
+$ <echo "CPP files: $cpp_files" >
 <CPP files: 13774>
-<$ echo "Other files: $other_files">
+$ <echo "Other files: $other_files">
 <Other files: 46279>
 
 6.Найдите полный пусть до файла any.hpp внутри библиотеки boost.
 
-<$ find ~/boost_1_69_0 -name "any.hpp">
+$ <find ~/boost_1_69_0 -name "any.hpp">
 </home/shamshetdinov/boost_1_69_0/boost/type_erasure/any.hpp
 /home/shamshetdinov/boost_1_69_0/boost/fusion/algorithm/query/detail/any.hpp
 /home/shamshetdinov/boost_1_69_0/boost/fusion/algorithm/query/any.hpp
@@ -82,7 +81,7 @@ boost_1_69_0.tar.gz 100%[================>] 106.53M  5.13MB/s    in 23s
 
 7.Выведите в консоль все файлы, где упоминается последовательность boost::asio.
 
-<$ grep -rl "boost::asio" ~/boost_1_69_0>
+$ <grep -rl "boost::asio" ~/boost_1_69_0>
 </home/shamshetdinov/boost_1_69_0/boost/asio/serial_port.hpp
 /home/shamshetdinov/boost_1_69_0/boost/asio/buffered_write_stream.hpp
 /home/shamshetdinov/boost_1_69_0/boost/asio/ts/netfwd.hpp
@@ -91,9 +90,9 @@ boost_1_69_0.tar.gz 100%[================>] 106.53M  5.13MB/s    in 23s
 
 8.Скомпилирутйе boost. Можно воспользоваться инструкцией или ссылкой.
 
-<$ cd ~/boost_1_69_0>
+$ <cd ~/boost_1_69_0>
 <>
-<$ ./bootstrap.sh>
+$ <./bootstrap.sh>
 <Building Boost.Build engine with toolset gcc... tools/build/src/engine/bin.linuxarm/b2
 Detecting Python version... 3.12
 Detecting Python root... /usr
@@ -115,7 +114,7 @@ Further information:
      
    - Boost.Build documentation:
      http://www.boost.org/build/doc/html/index.html>
-<./b2 -j4> //'-j4' использовал для многопоточной сборки с целью сокращения сборки
+$ <./b2 -j4> //'-j4' использовал для многопоточной сборки с целью сокращения сборки
 <Performing configuration checks
 
     - default address-model    : 64-bit
@@ -129,13 +128,13 @@ Building the Boost C++ Libraries.
     - Boost.Config Feature Check: cxx11_auto_declarations : yes
     - Boost.Config Feature Check: cxx11_constexpr : yes
     - Boost.Config Feature Check: cxx11_defaulted_functions : yes> //Представил небольшой фрагмент вывода: так как исходный текст слишком большой ддля вставки.
-<$ ls bin.v2/libs/> //Проверка сборки
+$ <ls bin.v2/libs/> //Проверка сборки
 <atomic     contract   filesystem  math            serialization  timer
 chrono     coroutine  graph       program_options  stacktrace     type_erasure
 config     date_time  iostreams   python           system         wave
 container  exception  locale      random           test
 context    fiber      log         regex            thread                     >
-<sudo ./b2 install>
+$ <sudo ./b2 install>
 <[sudo] password for shamshetdinov:>
 <Performing configuration checks
 
@@ -146,16 +145,16 @@ context    fiber      log         regex            thread                     >
     - Boost.Config Feature Check: cxx11_auto_declarations : yes (cached)
     - Boost.Config Feature Check: cxx11_constexpr : yes (cached)
     - Boost.Config Feature Check: cxx11_defaulted_functions : yes (cached)> //Представил небольшой фрагмент вывода: так как исходный текст слишком большой ддля вставки
-<$ echo $?> //Проверка статуса завершения сборки
+$ <echo $?> //Проверка статуса завершения сборки
 <0>         //Статус подтверждён
 
 9.Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию ~/boost-libs.
 
-<$ mkdir ~/boost-libs>
+$ <mkdir ~/boost-libs>
 <>
-<$ cp stage/lib/*.a ~/boost-libs/>
+$ <cp stage/lib/*.a ~/boost-libs/>
 <>
-<$ ls ~/boost-libs>   //Проверка новой директории
+$ <ls ~/boost-libs>   //Проверка новой директории
 <libboost_atomic.a     libboost_math_c99.a         libboost_stacktrace_addr2line.a
 libboost_chrono.a      libboost_math_c99f.a         libboost_stacktrace_backtrace.a
 libboost_container.a   libboost_math_c99l.a         libboost_stacktrace_basic.a
@@ -170,7 +169,7 @@ libboost_iostreams.a   libboost_serialization.a                                 
 
 10. Подсчитайте сколько занимает дискового пространства каждый файл в этой директории.
 
-<$ du -h ~/boost-libs/*>
+$ <du -h ~/boost-libs/*>
 <4.0K    /home/shamshetdinov/boost-libs/libboost_atomic.a
 264K    /home/shamshetdinov/boost-libs/libboost_chrono.a
 148K    /home/shamshetdinov/boost-libs/libboost_container.a
@@ -206,7 +205,7 @@ libboost_iostreams.a   libboost_serialization.a                                 
 
 11. Найдите топ10 самых "тяжёлых".
 
-<$ du -h ~/boost-libs/* | sort -hr | head -n 10>
+$ <du -h ~/boost-libs/* | sort -hr | head -n 10>
 <4.7M    /home/shamshetdinov/boost-libs/libboost_wave.a
 3.7M    /home/shamshetdinov/boost-libs/libboost_math_tr1.a
 3.4M    /home/shamshetdinov/boost-libs/libboost_math_tr1l.a
