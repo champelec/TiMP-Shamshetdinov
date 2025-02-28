@@ -2,7 +2,7 @@
 Домашнее задание группы ИУ8Ц-41 Шамшетдинова Эмиля
 1.Скачайте библиотеку boost с помощью утилиты wget. Адрес для скачивания https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz.
 
-<$ wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz> 
+$<wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz> 
 <--2025-02-27 23:59:53--  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
 Resolving sourceforge.net (sourceforge.net)... 104.18.12.149, 104.18.13.149, 2606:4700::6812:d95, ...
 Connecting to sourceforge.net (sourceforge.net)|104.18.12.149|:443... connected.
