@@ -82,6 +82,9 @@ $ <find ~/boost_1_69_0 -name "any.hpp">
 /home/shamshetdinov/boost_1_69_0/boost/hana/fwd/any.hpp>
 ```
 7.Выведите в консоль все файлы, где упоминается последовательность boost::asio.
+```sh
+└─$ grep -rl "boost::asio" ~/boost_1_69_0 >> output.txt
+```
 [result](https://raw.githubusercontent.com/champelec/TiMP-Shamshetdinov/refs/heads/main/output.txt)
 8.Скомпилирутйе boost. Можно воспользоваться инструкцией или ссылкой.
 ```sh
