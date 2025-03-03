@@ -85,7 +85,9 @@ $ <find ~/boost_1_69_0 -name "any.hpp">
 ```sh
 └─$ grep -rl "boost::asio" ~/boost_1_69_0 >> output.txt
 ```
+
 [result](https://raw.githubusercontent.com/champelec/TiMP-Shamshetdinov/refs/heads/main/output.txt)
+
 8.Скомпилирутйе boost. Можно воспользоваться инструкцией или ссылкой.
 ```sh
 $ <cd ~/boost_1_69_0>
