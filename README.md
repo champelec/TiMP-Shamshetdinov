@@ -4,7 +4,7 @@
 **Шамшетдинова Эмиля**
 
 1.Скачайте библиотеку boost с помощью утилиты **wget**. Адрес для скачивания https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz.
-'''sh
+```sh
 $ <wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz> 
 <--2025-02-27 23:59:53--  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
 Resolving sourceforge.net (sourceforge.net)... 104.18.12.149, 104.18.13.149, 2606:4700::6812:d95, ...
@@ -34,26 +34,26 @@ Saving to: ‘boost_1_69_0.tar.gz’
 boost_1_69_0.tar.gz 100%[================>] 106.53M  5.13MB/s    in 23s     
 
 2025-02-28 00:00:19 (4.72 MB/s) - ‘boost_1_69_0.tar.gz’ saved [111710205/111710205]>
-'''
+```
 2.Разархивируйте скаченный файл в директорию ~/boost_1_69_0
-'''sh
+```sh
 $ <mkdir ~boost_1_69_0>
 <>
 $ <tar -xzf boost_1_69_0.tar.gz>
 <>
-'''
+```
 3.Подсчитайте количество файлов в директории ~/boost_1_69_0 не включая вложенные директории.
-'''sh
+```sh
 $ <find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l>
 <12>
-'''
+```
 4.Подсчитайте количество файлов в директории ~/boost_1_69_0 включая вложенные директории.
-'''sh
+```sh
 $ <find ~/boost_1_69_0 -type f | wc -l  >
 <61191>
-'''
+```
 5.Подсчитайте количество заголовочных файлов, файлов с расширением .cpp, сколько остальных файлов (не заголовочных и не .cpp).
-'''sh
+```sh
 $ <header_files=$(find ~/boost_1_69_0 -type f -name "*.hpp" | wc -l)>
 <>
 $ <cpp_files=$(find ~/boost_1_69_0 -type f -name "*cpp" |wc -l)>
@@ -66,9 +66,9 @@ $ <echo "CPP files: $cpp_files" >
 <CPP files: 13774>
 $ <echo "Other files: $other_files">
 <Other files: 46279>
-'''
+```
 6.Найдите полный пусть до файла any.hpp внутри библиотеки boost.
-'''sh
+```sh
 $ <find ~/boost_1_69_0 -name "any.hpp">
 </home/shamshetdinov/boost_1_69_0/boost/type_erasure/any.hpp
 /home/shamshetdinov/boost_1_69_0/boost/fusion/algorithm/query/detail/any.hpp
@@ -80,18 +80,18 @@ $ <find ~/boost_1_69_0 -name "any.hpp">
 /home/shamshetdinov/boost_1_69_0/boost/proto/detail/any.hpp
 /home/shamshetdinov/boost_1_69_0/boost/hana/any.hpp
 /home/shamshetdinov/boost_1_69_0/boost/hana/fwd/any.hpp>
-'''
+```
 7.Выведите в консоль все файлы, где упоминается последовательность boost::asio.
-'''sh
+```sh
 $ <grep -rl "boost::asio" ~/boost_1_69_0>
 </home/shamshetdinov/boost_1_69_0/boost/asio/serial_port.hpp
 /home/shamshetdinov/boost_1_69_0/boost/asio/buffered_write_stream.hpp
 /home/shamshetdinov/boost_1_69_0/boost/asio/ts/netfwd.hpp
 /home/shamshetdinov/boost_1_69_0/boost/asio/local/datagram_protocol.hpp
 /home/shamshetdinov/boost_1_69_0/boost/asio/local/stream_protocol.hpp> //Представил небольшой фрагмент вывода: так как исходный текст слишком большой ддля вставки.
-'''
+```
 8.Скомпилирутйе boost. Можно воспользоваться инструкцией или ссылкой.
-'''sh
+```sh
 $ <cd ~/boost_1_69_0>
 <>
 $ <./bootstrap.sh>
@@ -149,9 +149,9 @@ $ <sudo ./b2 install>
     - Boost.Config Feature Check: cxx11_defaulted_functions : yes (cached)> **Представил небольшой фрагмент вывода: так как исходный текст слишком большой ддля вставки**
 $ <echo $?> **Проверка статуса завершения сборки**
 <0>         **Статус подтверждён**
-'''
+```
 9.Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию ~/boost-libs.
-'''sh
+```sh
 $ <mkdir ~/boost-libs>
 <>
 $ <cp stage/lib/*.a ~/boost-libs/>
@@ -168,9 +168,9 @@ libboost_fiber.a       libboost_program_options.a   libboost_unit_test_framework
 libboost_filesystem.a  libboost_random.a            libboost_wave.a
 libboost_graph.a       libboost_regex.a             libboost_wserialization.a
 libboost_iostreams.a   libboost_serialization.a                                      >
-'''
+```
 10. Подсчитайте сколько занимает дискового пространства каждый файл в этой директории.
-'''sh
+```sh
 $ <du -h ~/boost-libs/*>
 <4.0K    /home/shamshetdinov/boost-libs/libboost_atomic.a
 264K    /home/shamshetdinov/boost-libs/libboost_chrono.a
@@ -204,9 +204,9 @@ $ <du -h ~/boost-libs/*>
 2.3M    /home/shamshetdinov/boost-libs/libboost_unit_test_framework.a
 4.7M    /home/shamshetdinov/boost-libs/libboost_wave.a
 812K    /home/shamshetdinov/boost-libs/libboost_wserialization.a>
-'''
+```
 11. Найдите топ10 самых "тяжёлых".
-'''sh
+```sh
 $ <du -h ~/boost-libs/* | sort -hr | head -n 10>
 <4.7M    /home/shamshetdinov/boost-libs/libboost_wave.a
 3.7M    /home/shamshetdinov/boost-libs/libboost_math_tr1.a
@@ -218,4 +218,4 @@ $ <du -h ~/boost-libs/* | sort -hr | head -n 10>
 1.6M    /home/shamshetdinov/boost-libs/libboost_program_options.a
 1.3M    /home/shamshetdinov/boost-libs/libboost_serialization.a
 884K    /home/shamshetdinov/boost-libs/libboost_graph.a>
-'''
+```
