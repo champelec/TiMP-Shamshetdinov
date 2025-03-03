@@ -82,14 +82,7 @@ $ <find ~/boost_1_69_0 -name "any.hpp">
 /home/shamshetdinov/boost_1_69_0/boost/hana/fwd/any.hpp>
 ```
 7.Выведите в консоль все файлы, где упоминается последовательность boost::asio.
-```sh
-$ <grep -rl "boost::asio" ~/boost_1_69_0>
-</home/shamshetdinov/boost_1_69_0/boost/asio/serial_port.hpp
-/home/shamshetdinov/boost_1_69_0/boost/asio/buffered_write_stream.hpp
-/home/shamshetdinov/boost_1_69_0/boost/asio/ts/netfwd.hpp
-/home/shamshetdinov/boost_1_69_0/boost/asio/local/datagram_protocol.hpp
-/home/shamshetdinov/boost_1_69_0/boost/asio/local/stream_protocol.hpp> //Представил небольшой фрагмент вывода: так как исходный текст слишком большой ддля вставки.
-```
+[result](https://raw.githubusercontent.com/champelec/TiMP-Shamshetdinov/refs/heads/main/output.txt)
 8.Скомпилирутйе boost. Можно воспользоваться инструкцией или ссылкой.
 ```sh
 $ <cd ~/boost_1_69_0>
